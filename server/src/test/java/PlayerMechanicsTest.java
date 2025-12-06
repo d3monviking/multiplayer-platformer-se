@@ -1,6 +1,8 @@
-import org.junit.jupiter.api.Test;
 import java.net.InetSocketAddress;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 public class PlayerMechanicsTest {
 
@@ -10,8 +12,6 @@ public class PlayerMechanicsTest {
     
     @Test
     public void testPlayerDimensionsById() {
-        // Player sizes are hardcoded in the constructor based on ID. 
-        // We verify these magic numbers here.
         
         Player p1 = createPlayer(1);
         assertEquals(55, p1.size.x);
@@ -34,17 +34,14 @@ public class PlayerMechanicsTest {
     public void testPowerUpInventoryManagement() {
         Player p = createPlayer(1);
         
-        // Create dummy powerups
         PowerUp pu1 = new PowerUp(new Vec2(0,0), new Vec2(0,0));
         PowerUp pu2 = new PowerUp(new Vec2(0,0), new Vec2(0,0));
         
-        // Add to inventory
         p.powerUps.add(pu1);
         p.powerUps.add(pu2);
         
         assertEquals(2, p.powerUps.size());
         
-        // Apply first powerup
         long time = System.currentTimeMillis();
         p.applyPowerUp(time);
         
@@ -52,7 +49,6 @@ public class PlayerMechanicsTest {
         assertTrue(p.isBoostActive, "Boost should be active");
         assertEquals(time, p.boostStart);
         
-        // Apply second powerup
         p.applyPowerUp(time + 100);
         assertEquals(0, p.powerUps.size(), "Should be empty after second use");
         assertEquals(time + 100, p.boostStart, "Boost start time should update");

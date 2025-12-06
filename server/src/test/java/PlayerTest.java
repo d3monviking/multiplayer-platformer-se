@@ -1,8 +1,11 @@
+import java.net.InetSocketAddress;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.net.InetSocketAddress;
-import java.time.Instant;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
 
@@ -65,7 +68,6 @@ public class PlayerTest {
         player.setCoordinates(newPos);
         assertSame(newPos, player.getCoordinates());
 
-        // Velocity
         Vec2 newVel = new Vec2(10, -10);
         player.setVel(newVel);
         assertSame(newVel, player.getVelocity());
@@ -101,11 +103,7 @@ public class PlayerTest {
         assertTrue(player.isBoostActive);
         assertEquals(time, player.boostStart);
         assertTrue(player.powerUps.isEmpty(), "PowerUp should be consumed");
-        
-        // Verify speed boost effect (Base 12.0 * 4.0 = 48.0)
-        // Note: applyPowerUp modifies vel.x logic in PowerUp.java
-        // but current velocity is 0, so 0 * 4 is 0. 
-        // We should set velocity first to test the multiplier.
+
         player.vel.x = 10f;
         player.maxSpeed = 10f;
         player.powerUps.add(new PowerUp(new Vec2(0,0), new Vec2(0,0)));
