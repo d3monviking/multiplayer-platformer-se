@@ -308,7 +308,7 @@ public class Level {
         
         xCollisions(self);
         yCollisions(self);
-        System.out.println(self.getCoordinates().getX() + " " + self.getCoordinates().getY());
+// System.out.println(self.getCoordinates().getX() + " " + self.getCoordinates().getY());
 //        if(self.getCoordinates().y > 6400){
 //            self.getCoordinates().y = 5710+(177*4);
 //            self.getCoordinates().x = 20;

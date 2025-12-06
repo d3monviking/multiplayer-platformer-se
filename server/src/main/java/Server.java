@@ -1,10 +1,16 @@
-import Game.ClientMessage;
 import java.io.IOException;
-import java.net.*;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+
+import Game.ClientMessage;
 
 
 public class Server {
@@ -50,7 +56,7 @@ public class Server {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(x);
+        // System.out.println(x);
         gameState = 1;
 
         // Start calculate thread
