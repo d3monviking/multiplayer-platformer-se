@@ -56,6 +56,7 @@ class Player{
         sf::Vector2f getPos();
         void setPos(float x, float y);
         void setCoords(float x, float y);
+        void setVel(float x, float y);
         void moveCam(float x_shift, float y_shift);
         void setSprite(int id);
         void addShell(Shell* shell);

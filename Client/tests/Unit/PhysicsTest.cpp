@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../level.h" 
+#include "level.h" 
 #include <SFML/Graphics.hpp>
 
 class PhysicsTest : public ::testing::Test {

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../player.h"
-#include "../tiles.h"
+#include "player.h"
+#include "tiles.h"
 
 TEST(PowerUpTest, ApplyBoostLogic) {
     sf::Sprite s;

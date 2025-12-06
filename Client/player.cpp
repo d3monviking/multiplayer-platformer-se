@@ -39,6 +39,11 @@ void Player::setCoords(float x, float y){
     this->sprite.setPosition(x, y);
 }
 
+void Player::setVel(float x, float y) {
+    this->vel.x = x;
+    this->vel.y = y;
+}
+
 sf::Vector2u Player::getDim(){
     return this->dim;
 }
