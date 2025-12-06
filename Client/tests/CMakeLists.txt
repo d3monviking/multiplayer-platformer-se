@@ -24,6 +24,7 @@ set(SOURCE_FILES
 add_executable(runTests
     PhysicsTest.cpp
     EntityTest.cpp
+    MechanicsTest.cpp      
     ${SOURCE_FILES}
 )
 
