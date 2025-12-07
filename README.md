@@ -84,7 +84,7 @@ Before starting, ensure you have the following installed:
 
 ### For Server (Java)
 
-*   Java JDK 17+ (or JDK 21)
+*   Java JDK 17+
 *   Maven
 
 ### For Client (C++)
@@ -105,7 +105,7 @@ sudo apt-get install openjdk-17-jdk maven \
 
 ## Server Tests (with Maven)
 
-The server-side tests use JUnit 5 and are managed by Maven.
+The server-side tests, managed by Maven, use JUnit 5.
 
 
 **Instructions:**
