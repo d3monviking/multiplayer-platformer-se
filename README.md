@@ -75,3 +75,89 @@ java Server
 ./game
 ```
 Once all players have joined the game, press Enter in the server terminal to start the game.
+
+# Testing
+
+## Prerequisites
+
+Before starting, ensure you have the following installed:
+
+### For Server (Java)
+
+*   Java JDK 17+ (or JDK 21)
+*   Maven
+
+### For Client (C++)
+
+*   C++ Compiler (GCC/G++ 11+ or Clang)
+*   CMake (Version 3.10+)
+*   SFML (Development libraries)
+*   Boost (System libraries)
+*   Google Test (Optional, the build script can fetch it automatically)
+
+#### Ubuntu/Debian Setup Command:
+```bash
+sudo apt-get update
+sudo apt-get install openjdk-17-jdk maven \
+    build-essential cmake libsfml-dev libboost-system-dev \
+    libgtest-dev google-mock
+```
+
+## Server Tests (with Maven)
+
+The server-side tests use JUnit 5 and are managed by Maven.
+
+
+**Instructions:**
+
+1.  Navigate to the `server` directory:
+    ```bash
+    cd multiplayer-fiasco/server
+    ```
+2.  Run the desired test commands:
+
+    *   **Run Unit Tests Only:**
+        This runs all files ending in `Test.java` and skips integration tests.
+        ```bash
+        mvn test
+        ```
+
+    *   **Run Integration Tests Only:**
+        This skips unit tests and runs only integration tests (files ending in `IT.java`).
+        ```bash
+        mvn verify -Dsurefire.skip=true
+        ```
+
+    *   **Run All Tests (Unit & Integration):**
+        ```bash
+        mvn verify
+        ```
+## Client Tests
+
+The client-side tests use Google Test and are built with CMake.
+
+**Instructions:**
+
+1. First, build the executable files:
+    *   **Navigate to the tests directory**
+        ```bash
+        cd multiplayer-fiasco/Client/tests
+        ```
+
+    *   **Create a build directory and navigate into it**
+        ```bash
+        mkdir -p build && cd build
+        ```
+
+    *   **Configure the project with CMake and build it**
+        ```bash
+        cmake ..
+        make
+        ```
+
+2.  Now you can run the tests from within the `build` directory.
+
+| Goal                  | Command             | Description                                        |
+| --------------------- | ------------------- | -------------------------------------------------- |
+| Run Unit Tests        | `./runUnitTests`    | Instant tests. Ideal for running while coding.     |
+| Run Integration Tests | `./runIntegrationTests` | Slower tests for physics flow and network code. |
